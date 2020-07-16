@@ -1,1 +1,121 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body,
+html {
+    background-color: rgb(23, 23, 23);
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+}
+
+.flex-center-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flex-center-evenly-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+.flex-center-top-col {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flex-center-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.pos-absolute-lt0 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.absolut-center {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.absolute-center-top {
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: 0%;
+}
+
+.animated-fade-lefTOright {
+    animation: 0.6s fadeLEFTtoRIGHT linear forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeLEFTtoRIGHT {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.encabezado-seccion {
+    color: #f56301;
+    text-align: center;
+    font-weight: 600;
+    font-size: calc(14px + (50 - 14) * ((100vw - 300px) / (1600 - 300)));
+    transform: skew( -15deg, 0deg) scaleY(1.5);
+    margin-bottom: 30px;
+}
+
+.grid-landing-page {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    height: 120vh;
+    display: grid;
+    grid-template-columns: 45% auto;
+    grid-template-rows: auto;
+}
+
+.grid-leftUp-landig {
+    width: 100%;
+    height: 100%;
+    padding: 0px 100px 0px 100px;
+}
+
+.grid-rightDown-landig {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    position: relative;
+}
+
+
+/* @media screen and ( max-width: 850px) {
+    .grid-landing-page {
+        height: unset !important;
+        display: grid;
+        grid-template-columns: 100% !important;
+        grid-template-rows: minmax( 300px, 130vh) minmax( 600px, 130vh) !important;
+    }
+} */

@@ -1,0 +1,55 @@
+<div class="reproductor-container" id="reproductor">
+    <h2 class="encabezado-seccion"> Explorar Canciones </h2>
+    <div class="grid-landing-page" style="max-height: 90vh;">
+        <!--Grid izquierdo-->
+        <div class="grid-leftUp-landig flex-center-top-col" style="position: relative; padding: 30px 15px;">
+            <div *ngIf="canciones.length === 0" class="circle-one absolut-center">
+            </div>
+            <div *ngIf="canciones.length === 0" class="circle-two absolut-center">
+            </div>
+            <div *ngIf="canciones.length === 0" class="circle-three absolut-center">
+            </div>
+            <p *ngIf="loading" class="info-text-loader">Cargando</p>
+            <p *ngIf="!loading && canciones.length === 0" class="info-text-loader">Explora</p>
+            <button #cancion type="text" (click)="buscarCanciones()" placeholder="Busca tu canción favorita" class="search-bar"> BUSCAR CANCIONES </button>
+            <div class="track-list-container">
+                <ul *ngIf="!loading ">
+                    <li *ngFor="let cancion of canciones" class="animated-fade-lefTOright list-tracks">
+                        <img [src]="cancion.img" alt="" style="width: 80px; height: 80px;" (click)="detenerCancion()">
+                        <div style="margin-left: 15px;">
+                            <p style="margin-right: 15px;"> {{ cancion.nombre }} / {{ cancion.artista }} <br> {{ cancion.genero }} </p>
+                        </div>
+                        <div class="play-music" (click)="reproducir(cancion)">Play</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Grid derecho-->
+        <div class="grid-rightDown-landig  flex-center-col">
+            <div style="width: 80%; height: 100%;" class=" flex-center-col">
+                <div class="info-play-box flex-center-col">
+                    <div class="" style="z-index: 3; background-color: rgba(255,255,255,0.5); width: 100%;">
+                        <p class="player-nombre">{{ track.nombre }}</p>
+                        <p class="player-artista"> {{ track.artista }} </p>
+                    </div>
+                    <img [src]="track.img" [alt]="track.genero" class="img-play-box">
+                    <i class="fas fa-headphones-alt fondo-agua-audifonos absolut-center"></i>
+                </div>
+                <div class="flex-center-evenly-row" style="width: 100%;">
+                    <div class="player-button flex-center-col">
+                        <i class="fas fa-backward"></i>
+                    </div>
+                    <div class="player-button flex-center-col" *ngIf="!play" (click)="reproducir()">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="player-button flex-center-col" *ngIf="play" (click)="detenerCancion()">
+                        <i class="fas fa-pause"></i>
+                    </div>
+                    <div class="player-button flex-center-col">
+                        <i class="fas fa-forward"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

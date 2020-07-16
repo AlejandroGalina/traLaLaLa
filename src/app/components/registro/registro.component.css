@@ -1,0 +1,51 @@
+.registro-sheet {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: calc( (70vw + 70vh) / 2);
+    height: calc( (55vw + 55vh) / 2);
+    background-color: rgb(20, 20, 20);
+    z-index: 20;
+    border-radius: 57% 1% 0% 55% / 55% 0% 3% 0%;
+    transform: translateX(100%);
+    transition: all 0.6s ease-out;
+    border: 2px solid rgb(84, 236, 247);
+    filter: drop-shadow( 5px 5px 20px rgba(0, 0, 0, 1));
+}
+
+.mostrar {
+    transform: translateX(0%) !important;
+}
+
+label {
+    color: white;
+}
+
+.boton-decision {
+    margin: 30px 15px;
+    cursor: pointer;
+}
+
+.inputRegistroLogin {
+    background-color: rgb(247, 77, 210);
+    color: white;
+    line-height: 60px;
+    margin-bottom: 15px;
+    min-width: 400px;
+    padding: 0px 25px;
+    border: 2px solid rgb(247, 77, 210);
+    transform: skew(-15deg, -1deg);
+    transition: all 0.1s linear;
+}
+
+.inputRegistroLogin::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1;
+    /* Firefox */
+}
+
+.inputRegistroLogin:focus {
+    outline: none;
+    border: 4px solid rgb(102, 1, 80);
+}

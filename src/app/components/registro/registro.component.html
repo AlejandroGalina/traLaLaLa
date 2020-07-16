@@ -1,0 +1,39 @@
+<form (ngSubmit)="onSubmit( f )" #f="ngForm">
+    <div class="registro-sheet flex-center-col" id="form1" [ngClass]="{'mostrar': deplegarRegistro}">
+        <span *ngIf="f.submitted && f.controls['nombre'].errors">Nombre debe ser mayor de 3 letras</span>
+        <div>
+            <input class="inputRegistroLogin" type="text" name="nombre" [(ngModel)]="usuario.nombre" required nombre placeholder="Nombre" autocomplete="off" minlength="3">
+        </div>
+        <span *ngIf="f.submitted && f.controls['correo'].errors">El correo es obligatorio</span>
+        <div class="wrap-input100 m-b-16">
+            <input class="inputRegistroLogin" type="email" name="correo" [(ngModel)]="usuario.correo" required email placeholder="Email" autocomplete="off">
+        </div>
+        <div class="flex-center-row">
+            <div (click)="cerrarTodo()" class="boton-decision">Cerrar</div>
+            <div (click)="desplegarSiguiente(1)" class="boton-decision">Continuar</div>
+        </div>
+    </div>
+    <!---->
+    <div class="registro-sheet flex-center-col" id="form2">
+        <span *ngIf="f.submitted && f.controls['password'].errors">La contraseña debe tener más de 5 letras</span>
+        <div>
+            <input class="inputRegistroLogin" type="password" name="password" [(ngModel)]="usuario.password" required password placeholder="Contraseña" autocomplete="off" minlength="5">
+        </div>
+        <span *ngIf="f.submitted && f.controls['correo'].errors">La contraseña no coincide con la original</span>
+        <div class="wrap-input100 m-b-16">
+            <input class="inputRegistroLogin" type="password" name="confirmacionPassword" [(ngModel)]="confirmacionPassword" required placeholder="Repetir contraseña" autocomplete="off">
+        </div>
+        <div class="flex-center-row">
+            <div (click)="regresar(1)" class="boton-decision">regresar</div>
+            <div (click)="desplegarSiguiente(2)" class="boton-decision">Continuar</div>
+        </div>
+    </div>
+    <!---->
+    <div class="registro-sheet flex-center-col" style="z-index: 22 !important;" id="form3">
+        <span *ngIf="f.submitted && !f.valid" class="">Algo salió mal, favor revisa los campos</span>
+        <div class="flex-center-row">
+            <div (click)="regresar(2)" class="boton-decision">regresar</div>
+            <button class="boton-decision" type="submit"> Finalizar mi registro </button>
+        </div>
+    </div>
+</form>
